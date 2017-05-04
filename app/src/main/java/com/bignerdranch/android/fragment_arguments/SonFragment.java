@@ -17,15 +17,25 @@ import android.widget.CompoundButton;
  */
 
 public class SonFragment extends Fragment {
+    private static final String ARGS_CLICK = "click";
     private Button mButtonReturn;
     private CheckBox mCheckBox;
     private boolean mClick;
+
+    public static SonFragment newFragment(boolean click) {
+        Bundle args = new Bundle();
+        args.putSerializable(ARGS_CLICK, click);
+
+        SonFragment sonF = new SonFragment();
+        sonF.setArguments(args);
+        return sonF;
+    }
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment, container, false);
 
-        mClick = (boolean) getActivity().getIntent().getSerializableExtra(FatherActivity.EXTRA_CLICK);
+        mClick = (boolean) getArguments().getSerializable(ARGS_CLICK);
         mCheckBox = (CheckBox) view.findViewById(R.id.check_box);
         mCheckBox.setChecked(mClick);
         mButtonReturn = (Button) view.findViewById(R.id.button);

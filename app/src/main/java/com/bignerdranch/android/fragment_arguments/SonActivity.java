@@ -10,7 +10,7 @@ import android.support.v4.app.Fragment;
 
 public class SonActivity extends SingleActivityFragment {
 
-    public static final String EXTRA_CLICK = "click";
+    private static final String EXTRA_CLICK = "click";
 
     //带信息的intent
     public static Intent newIntent(Context packageContext, boolean clicked) {
@@ -20,6 +20,7 @@ public class SonActivity extends SingleActivityFragment {
     }
     @Override
     public Fragment createFragment() {
-        return new SonFragment();
+        boolean click = (boolean) getIntent().getSerializableExtra(EXTRA_CLICK);
+        return SonFragment.newFragment(click);
     }
 }
