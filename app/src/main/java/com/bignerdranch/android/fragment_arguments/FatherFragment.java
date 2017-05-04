@@ -36,7 +36,7 @@ public class FatherFragment extends Fragment {
         mButtonIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = FatherActivity.newIntent(getActivity(), mClick);
+                Intent i = SonActivity.newIntent(getActivity(), mClick);
                 startActivity(i);
             }
         });
