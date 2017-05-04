@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Fragment_arguments</string>
+    <string name="button_in">IN</string>
+    <string name="button_return">return</string>
+</resources>
